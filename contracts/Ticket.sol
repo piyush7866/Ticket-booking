@@ -41,11 +41,11 @@ contract EventContract {
     */
     mapping(address => mapping(uint256 => Ticket[])) public enteredEvent;
 
-/*
+    /*
     * A variable which will keep track of the events created.
     * A variable which will keep track of the owner.
     * A constructor which will intialized the owner when contract runs.
-*/
+    */
     uint256 public nextId;
     address public owner;
     constructor(){
