@@ -31,13 +31,13 @@ function App() {
             method: "eth_requestAccounts",
           });
 
-          window.ethereum.on("chainChanged", () => {
-            window.location.reload();
-          });
+          // window.ethereum.on("chainChanged", () => {
+          //   window.location.reload();
+          // });
 
-          window.ethereum.on("accountsChanged", () => {
-            window.location.reload();
-          });
+          // window.ethereum.on("accountsChanged", () => {
+          //   window.location.reload();
+          // });
 
           const provider = new ethers.providers.Web3Provider(ethereum);
           const signer = provider.getSigner();
