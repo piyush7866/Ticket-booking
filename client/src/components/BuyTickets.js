@@ -35,58 +35,78 @@ function BuyTickets({ state, sharedData }) {
   };
 
   return (
-    <div className="h-screen bg-gray-50 flex flex-col justify-center items-center">
+    <div className="w-screen h-screen justify-center items-center">
       <h1 className="text-lg mb-3 border-spacing-1 border-rounded">
         Event Ticket booking
       </h1>
-      <form onSubmit={buyTicket} className="mt-8 w-64 flex flex-col">
-        <label>Event Id</label>
-        <input
-          autoFocus
-          type="number"
-          id="eventid"
-          placeholder="Type your event id"
-          value={eventId}
-          onChange={(e) => setEventId(e.target.value)}
-          className="text-xs w-full mb-2 rounded border bg-slate-200 border-gray-300 px-2 py-2 focus:outline-none focus:border-gray-400 active:outline-none"
-        />
-
-        <label>Event Name</label>
-        <input
-          autoFocus
-          type="text"
-          id="event"
-          placeholder="Type your event name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="text-xs w-full mb-2 rounded border bg-slate-200 border-gray-300 px-2 py-2 focus:outline-none focus:border-gray-400 active:outline-none"
-        />
-        <label>Number of Tickets</label>
-        <input
-          autoFocus
-          type="number"
-          id="ticket"
-          placeholder="Number of Tickets"
-          value={ticket}
-          onChange={(e) => setTicket(e.target.value)}
-          className="text-xs w-full mb-2 rounded border bg-slate-200 border-gray-300 px-2 py-2 focus:outline-none focus:border-gray-400 active:outline-none"
-        />
+      <form
+        onSubmit={buyTicket}
+        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      >
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Event Id
+          </label>
+          <input
+            autoFocus
+            type="number"
+            id="eventid"
+            placeholder="Type your event id"
+            value={eventId}
+            onChange={(e) => setEventId(e.target.value)}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        <div className="mb-6">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Event Name
+          </label>
+          <input
+            autoFocus
+            type="text"
+            id="event"
+            placeholder="Type your event name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        <div className="mb-6">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Number of Tickets
+          </label>
+          <input
+            autoFocus
+            type="number"
+            id="ticket"
+            placeholder="Number of Tickets"
+            value={ticket}
+            onChange={(e) => setTicket(e.target.value)}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
         <button
           type="submit"
-          className="text-lg cursor-pointer outline-none focus:outline-none transition-all text-gray-400 hover:text-green-600"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
           Buy Tickets
         </button>
       </form>
-      <p>
-        {list.map((ls) => (
-          <Link to="/enter">
-            {ls.ticket} {ls.ticket !== 1 ? "tickets" : "ticket"} booked for{" "}
-            {ls.name} event.
-            <br />
-          </Link>
-        ))}
-      </p>
+      <div className="py-8 px-8 max-w-sm mx-auto bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-left sm:space-y-0 sm:space-x-6">
+        <div className="text-center space-y-2 sm:text-left">
+          <div className="selection:bg-fuchsia-300 selection:text-fuchsia-900">
+            <p>
+              {list.map((ls) => (
+                <Link to="/enter">
+                  {ls.ticket} {ls.ticket !== 1 ? "tickets" : "ticket"} booked
+                  for {ls.name} event.
+                  <br />
+                </Link>
+              ))}
+            </p>
+          </div>
+        </div>
+      </div>
       {data.map((d, idx) => (
         <div key={idx}>
           <p>
