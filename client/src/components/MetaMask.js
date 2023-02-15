@@ -26,7 +26,7 @@ function MetaMask() {
       <header className="App-header">
         <button
           onClick={requestAccount}
-          className="text-lg cursor-pointer outline-none focus:outline-none transition-all text-gray-400 hover:text-green-600"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
           Connect metamask
         </button>
